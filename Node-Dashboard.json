@@ -64,7 +64,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1526549381759,
+  "iteration": 1527163592591,
   "links": [],
   "panels": [
     {
@@ -763,6 +763,90 @@
       "valueName": "avg"
     },
     {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(50, 172, 45, 0.97)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(245, 54, 54, 0.9)"
+      ],
+      "datasource": "${DS_DATASOURCE-PROMETHEUS}",
+      "editable": true,
+      "error": false,
+      "format": "percentunit",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 9
+      },
+      "id": 84,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "node_load1{instance=~\"$node\"} / count by(job, instance)(count by(job, instance, cpu)(node_cpu_seconds_total{instance=~\"$node\"}))",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 600
+        }
+      ],
+      "thresholds": "0.8,0.9",
+      "title": "Load",
+      "type": "singlestat",
+      "valueFontSize": "120%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
@@ -868,90 +952,6 @@
         "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "${DS_DATASOURCE-PROMETHEUS}",
-      "decimals": 2,
-      "description": "Total RAM",
-      "format": "bytes",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 4,
-        "y": 14
-      },
-      "id": 22,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "minSpan": 4,
-      "nullPointMode": "null",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "70%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "node_memory_MemTotal_bytes{instance=~\"$node\",job=~\"$job\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "refId": "A",
-          "step": 900
-        }
-      ],
-      "thresholds": "",
-      "title": "Total RAM",
-      "type": "singlestat",
-      "valueFontSize": "120%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "rgba(245, 54, 54, 0.9)",
-        "rgba(237, 129, 40, 0.89)",
-        "rgba(50, 172, 45, 0.97)"
-      ],
-      "datasource": "${DS_DATASOURCE-PROMETHEUS}",
       "decimals": 1,
       "description": "System uptime",
       "format": "s",
@@ -965,7 +965,7 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 8,
+        "x": 4,
         "y": 14
       },
       "hideTimeOverride": true,
@@ -1017,7 +1017,7 @@
       "title": "Uptime",
       "transparent": false,
       "type": "singlestat",
-      "valueFontSize": "120%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
@@ -1050,7 +1050,7 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 12,
+        "x": 8,
         "y": 14
       },
       "id": 28,
@@ -1135,7 +1135,7 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 16,
+        "x": 12,
         "y": 14
       },
       "id": 26,
@@ -1208,7 +1208,7 @@
       ],
       "datasource": "${DS_DATASOURCE-PROMETHEUS}",
       "decimals": 2,
-      "description": "Total SWAP",
+      "description": "Total RAM",
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -1220,10 +1220,10 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 20,
-        "y": 14
+        "x": 0,
+        "y": 17
       },
-      "id": 24,
+      "id": 22,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -1261,7 +1261,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "node_memory_SwapTotal_bytes{instance=~\"$node\",job=~\"$job\"}",
+          "expr": "node_memory_MemTotal_bytes{instance=~\"$node\",job=~\"$job\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A",
@@ -1269,7 +1269,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Total SWAP",
+      "title": "Total RAM",
       "type": "singlestat",
       "valueFontSize": "120%",
       "valueMaps": [
@@ -1304,7 +1304,7 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 0,
+        "x": 4,
         "y": 17
       },
       "id": 82,
@@ -1367,16 +1367,16 @@
     {
       "cacheTimeout": null,
       "colorBackground": false,
-      "colorValue": true,
+      "colorValue": false,
       "colors": [
-        "rgba(50, 172, 45, 0.97)",
+        "rgba(245, 54, 54, 0.9)",
         "rgba(237, 129, 40, 0.89)",
-        "rgba(245, 54, 54, 0.9)"
+        "rgba(50, 172, 45, 0.97)"
       ],
       "datasource": "${DS_DATASOURCE-PROMETHEUS}",
-      "editable": true,
-      "error": false,
-      "format": "percentunit",
+      "decimals": 2,
+      "description": "System Load (5m avg)",
+      "format": "short",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -1387,10 +1387,10 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 4,
+        "x": 8,
         "y": 17
       },
-      "id": 84,
+      "id": 102,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -1405,7 +1405,8 @@
         }
       ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
+      "minSpan": 2,
+      "nullPointMode": "null",
       "nullText": null,
       "postfix": "",
       "postfixFontSize": "50%",
@@ -1422,23 +1423,107 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": true
+        "show": false
       },
       "tableColumn": "",
       "targets": [
         {
-          "expr": "node_load1{instance=~\"$node\"} / count by(job, instance)(count by(job, instance, cpu)(node_cpu_seconds_total{instance=~\"$node\"}))",
+          "expr": "node_load5{instance=~\"$node\",job=~\"$job\"}",
           "format": "time_series",
-          "intervalFactor": 2,
-          "legendFormat": "",
+          "hide": false,
+          "intervalFactor": 1,
           "refId": "A",
-          "step": 600
+          "step": 900
         }
       ],
-      "thresholds": "0.8,0.9",
-      "title": "Load",
+      "thresholds": "",
+      "title": "System Load (5m avg)",
       "type": "singlestat",
       "valueFontSize": "120%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "datasource": "${DS_DATASOURCE-PROMETHEUS}",
+      "decimals": 2,
+      "description": "Total SWAP",
+      "format": "bytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 12,
+        "y": 17
+      },
+      "id": 24,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "minSpan": 4,
+      "nullPointMode": "null",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "70%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "node_memory_SwapTotal_bytes{instance=~\"$node\",job=~\"$job\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A",
+          "step": 900
+        }
+      ],
+      "thresholds": "",
+      "title": "Total SWAP",
+      "type": "singlestat",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
@@ -2606,6 +2691,102 @@
     },
     {
       "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_DATASOURCE-PROMETHEUS}",
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "grid": {},
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 60
+      },
+      "id": 104,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "1 - node_filesystem_free_bytes{instance=~\"$node\",job=~\"$job\",fstype!='rootfs',mountpoint!~'/images/',mountpoint!=''} / node_filesystem_size_bytes{instance=~\"$node\",job=~\"$job\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{mountpoint}}",
+          "refId": "A",
+          "step": 120
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Filesystem Fullness",
+      "tooltip": {
+        "msResolution": false,
+        "shared": false,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "series",
+        "name": null,
+        "show": false,
+        "values": [
+          "current"
+        ]
+      },
+      "yaxes": [
+        {
+          "format": "percentunit",
+          "label": "",
+          "logBase": 1,
+          "max": "1",
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
       "breakPoint": "50%",
       "cacheTimeout": null,
       "combine": {
@@ -2615,12 +2796,12 @@
       "datasource": "${DS_DATASOURCE-PROMETHEUS}",
       "decimals": null,
       "fontSize": "80%",
-      "format": "decbits",
+      "format": "decbytes",
       "gridPos": {
         "h": 8,
         "w": 9,
         "x": 0,
-        "y": 60
+        "y": 69
       },
       "id": 92,
       "interval": null,
@@ -2658,7 +2839,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 68
+        "y": 77
       },
       "id": 58,
       "panels": [
@@ -3455,7 +3636,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 69
+        "y": 78
       },
       "id": 48,
       "panels": [],
@@ -3478,7 +3659,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 70
+        "y": 79
       },
       "id": 50,
       "legend": {
@@ -3612,7 +3793,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 70
+        "y": 79
       },
       "id": 96,
       "legend": {
@@ -3712,7 +3893,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 80
+        "y": 89
       },
       "id": 54,
       "legend": {
@@ -3845,7 +4026,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 80
+        "y": 89
       },
       "id": 52,
       "legend": {
@@ -3978,7 +4159,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 90
+        "y": 99
       },
       "height": "",
       "id": 78,
@@ -4085,7 +4266,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 90
+        "y": 99
       },
       "id": 56,
       "legend": {
@@ -4213,7 +4394,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 100
+        "y": 109
       },
       "id": 88,
       "panels": [],
@@ -4235,7 +4416,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 101
+        "y": 110
       },
       "hideTimeOverride": false,
       "id": 98,
@@ -4306,7 +4487,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 108
+        "y": 117
       },
       "id": 86,
       "legend": {
@@ -4394,7 +4575,7 @@
         "h": 15,
         "w": 24,
         "x": 0,
-        "y": 117
+        "y": 126
       },
       "id": 100,
       "legend": {
@@ -4480,8 +4661,7 @@
   "style": "dark",
   "tags": [
     "prometheus",
-    "node_exporter",
-    "grafana"
+    "node_exporter"
   ],
   "templating": {
     "list": [
@@ -4548,7 +4728,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -4579,5 +4759,5 @@
   "timezone": "",
   "title": "Node Dashboard",
   "uid": "oOSnZg7mz",
-  "version": 32
+  "version": 38
 }
